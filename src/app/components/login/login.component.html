@@ -1,0 +1,26 @@
+<div class="login-container">
+
+  <form class="login-box">
+
+    <img src="assets/img/saude.png" alt="logo" class="logo">
+
+    <mat-form-field appearance="fill" class="input-full">
+      <mat-label>Matrícula</mat-label>
+      <input matInput [(ngModel)]="id" type="text" name="id" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="input-full">
+      <mat-label>Senha</mat-label>
+      <input matInput [(ngModel)]="senha" [type]="hide ? 'password' : 'text'" name="senha" required />
+      <button mat-icon-button matSuffix type="button" (click)="hide = !hide" class="icon-btn">
+        <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <button mat-raised-button color="" class="btn-login" (click)="submitLogin()">
+      <mat-icon>login</mat-icon>
+      Entrar
+    </button>
+
+  </form>
+</div>

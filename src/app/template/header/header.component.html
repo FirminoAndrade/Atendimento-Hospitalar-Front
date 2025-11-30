@@ -1,0 +1,38 @@
+<mat-toolbar class="header">
+  <span>
+    <img src="assets/img/saude.png" alt="">
+  </span>
+  <div class="icons">
+    <p>Olá, {{ nome }}</p>
+    <button class="menu" mat-icon-button [matMenuTriggerFor]="opcoes"><mat-icon class="iconeMenu" >menu</mat-icon></button>
+    <mat-menu #opcoes="matMenu">
+    <button mat-menu-item *ngIf="funcao == 'ADMIN'" routerLink="/criar/usuario">
+    <mat-icon>person_add</mat-icon>Novo Usuário
+  </button>
+  <button mat-menu-item *ngIf="funcao == 'ADMIN'" routerLink="/prontuario">
+    <mat-icon>person_add</mat-icon>Novo Prontuário
+  </button>
+  <button mat-menu-item *ngIf="funcao == 'ADMIN'" routerLink="/listar/usuarios">
+    <mat-icon>list</mat-icon>Listar Usuários
+  </button>
+  <button mat-menu-item *ngIf="funcao == 'ADMIN'" routerLink="/listar/prontuarios">
+    <mat-icon>list</mat-icon>Listar Prontuários
+  </button>
+
+  <button mat-menu-item *ngIf="funcao == 'RECEPCAO'" routerLink="/prontuario">
+    <mat-icon>person_add</mat-icon>Novo Prontuário
+  </button>
+  <button mat-menu-item *ngIf="funcao == 'RECEPCAO'" routerLink="/listar/prontuarios">
+    <mat-icon>list</mat-icon>Listar Prontuários
+  </button>
+
+  <button mat-menu-item (click)="botaoVoltar()">
+    <mat-icon>arrow_back</mat-icon>Voltar
+  </button>
+
+  <button mat-menu-item routerLink="">
+    <mat-icon>exit_to_app</mat-icon>Sair
+  </button>
+  </mat-menu>
+</div>
+</mat-toolbar>

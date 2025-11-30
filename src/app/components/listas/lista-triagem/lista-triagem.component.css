@@ -1,0 +1,54 @@
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+  color: #0a5275;
+  margin-bottom: 15px;
+}
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  min-width: 700px;
+  border-collapse: collapse;
+}
+
+th, td {
+  white-space: nowrap;        
+  text-overflow: ellipsis;    
+  overflow: hidden;
+  max-width: 150px;
+  padding: 8px;
+  font-size: 14px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+button {
+  margin: 0 5px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  table, th, td {
+    font-size: 12px;
+  }
+
+  button {
+    margin: 0 2px;
+  }
+}

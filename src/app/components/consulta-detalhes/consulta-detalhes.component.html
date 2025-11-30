@@ -1,0 +1,68 @@
+<div class="print-container">
+
+  <div class="header">
+    <img src="assets/img/saude.png" class="logo">
+    <div class="titulo">
+      <h1>FICHA DE CONSULTA</h1>
+      <h3>Secretaria Municipal de Saúde</h3>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <h2 class="section-title">Dados do Paciente</h2>
+
+  <div class="info-grid">
+    <p><b>Nome:</b> {{ consulta.prontuario?.nome }}</p>
+    <p><b>CPF:</b> {{ consulta.prontuario?.cpf | cpfMask}}</p>
+
+    <p><b>Nascimento:</b> 
+      {{ consulta.prontuario?.dataNascimento | date:'dd/MM/yyyy' }}
+    </p>
+
+    <p><b>Telefone:</b> {{ consulta.prontuario?.telefone | telefoneMask}}</p>
+  </div>
+
+  <hr class="divider">
+
+  <h2 class="section-title">Dados da Consulta</h2>
+
+  <div class="info-grid">
+    <p><b>Status:</b> {{ consulta.status }}</p>
+    <p><b>Data/Hora:</b> {{ consulta.dataHoraConsulta | date:'dd/MM/yyyy HH:mm' }}</p>
+
+    <p><b>Classificação:</b> {{ consulta.classificacaoRisco }}</p>
+    <p><b>Sintomas:</b> {{ consulta.sintomas }}</p>
+
+    <p><b>Pressão Arterial:</b> {{ consulta.pressaoArterial | presaoArterialMask }}</p>
+    <p><b>Frequência Cardíaca:</b> {{ consulta.frequenciaCardiaca }}</p>
+
+    <p><b>Temperatura:</b> {{ consulta.temperatura }}</p>
+    <p><b>Saturação:</b> {{ consulta.saturacao }}</p>
+  </div>
+
+  <hr class="divider">
+
+  <h2 class="section-title">Atendimento Médico</h2>
+
+  <div class="box">
+    <b>Diagnóstico:</b><br>
+    {{ consulta.diagnosticoMedico }}
+  </div>
+
+  <div class="box">
+    <b>Prescrição:</b><br>
+    {{ consulta.prescricaoMedica }}
+  </div>
+
+  <div class="print-button">
+    <button mat-raised-button color="primary" onclick="window.print()">
+      Imprimir
+    </button>
+  </div>
+
+  <div class="footer">
+    Documento gerado automaticamente pelo Sistema Hospitalar
+  </div>
+
+</div>
