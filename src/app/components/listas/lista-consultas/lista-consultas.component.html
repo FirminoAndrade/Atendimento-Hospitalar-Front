@@ -1,0 +1,51 @@
+<app-header></app-header>
+
+<div class="container">
+  <h2>Consultas do Paciente</h2>
+  <div class="dados-paciente">
+    <strong>Paciente: </strong> {{ consulta.nomePaciente }}
+  </div>
+  <table mat-table [dataSource]="consultas" class="mat-elevation-z8">
+    <ng-container matColumnDef="data">
+      <th mat-header-cell *matHeaderCellDef>Data</th>
+      <td mat-cell *matCellDef="let consulta">
+        {{ consulta.dataHoraConsulta | date : "dd/MM/yyyy" }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="hora">
+      <th mat-header-cell *matHeaderCellDef>Data</th>
+      <td mat-cell *matCellDef="let consulta">
+        {{ consulta.dataHoraConsulta | date : "HH:mm" }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="sintomas">
+      <th mat-header-cell *matHeaderCellDef>Sintomas</th>
+      <td mat-cell *matCellDef="let consulta">{{ consulta.sintomas }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="acoes">
+      <th mat-header-cell *matHeaderCellDef>Ações</th>
+
+      <td mat-cell *matCellDef="let consulta">
+        <button
+          mat-icon-button
+          color="accent"
+          (click)="consultaDetalhada(consulta.id)"
+        >
+          <mat-icon>print</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr
+      mat-header-row
+      *matHeaderRowDef="['data', 'hora', 'sintomas','acoes']"
+    ></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: ['data', 'hora', 'sintomas','acoes']"
+    ></tr>
+  </table>
+</div>

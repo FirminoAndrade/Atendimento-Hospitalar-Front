@@ -1,0 +1,36 @@
+<app-header></app-header> 
+<div class="container" fxLayout="column" fxLayoutGap="20px" fxLayoutAlign="center start">
+
+  <h2>Criar Usuário</h2>
+
+  <form (ngSubmit)="submitUsuario()" #usuarioForm="ngForm" fxLayout="column" fxLayoutGap="15px" class="form">
+
+    <div fxLayout="row wrap" fxLayoutGap="15px">
+      <mat-form-field appearance="fill" fxFlex="1 1 300px">
+        <mat-label>Nome</mat-label>
+        <input matInput [(ngModel)]="usuario.nome" name="nome" type="text" required>
+      </mat-form-field>
+
+     <mat-form-field appearance="fill" fxFlex="1 1 300px">
+        <mat-label>Função</mat-label>
+        <mat-select [(ngModel)]="usuario.funcao" name="funcao" type="text">
+          <mat-option *ngFor="let select of tipoStatus" [value]="select.valor">
+            {{ select.valor }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row wrap" fxLayoutGap="15px">
+      <mat-form-field appearance="fill" fxFlex="1 1 200px">
+        <mat-label>Senha</mat-label>
+        <input matInput [(ngModel)]="usuario.senha" name="senha" required>
+      </mat-form-field>
+    </div>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="!usuarioForm.form.valid">
+      Salvar
+    </button>
+
+  </form>
+</div>

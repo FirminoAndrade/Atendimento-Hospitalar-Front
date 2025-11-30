@@ -1,0 +1,31 @@
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  background-color: #fff;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form {
+  width: 100%;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.col-esquerda, .col-direita {
+  width: 48%;
+}
+
+textarea {
+  min-height: 90px;
+}
+
+

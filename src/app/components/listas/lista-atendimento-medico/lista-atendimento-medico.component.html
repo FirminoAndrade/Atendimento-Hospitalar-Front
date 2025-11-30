@@ -1,0 +1,98 @@
+<app-header></app-header> 
+
+<div class="container" fxLayout="column" fxLayoutGap="20px">
+
+  <h2>Atendimento Médico</h2>
+
+  <div class="table-wrapper">
+    <table mat-table [dataSource]="dataSourceAtendimento" class="mat-elevation-z8" matSort>
+
+      <ng-container matColumnDef="nomePaciente">
+        <th mat-header-cell *matHeaderCellDef> Paciente </th>
+        <td mat-cell *matCellDef="let consulta"> {{ consulta.prontuario?.nome }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="dataNascimento">
+        <th mat-header-cell *matHeaderCellDef> Nascimento </th>
+        <td mat-cell *matCellDef="let consulta"> {{ consulta.prontuario?.dataNascimento | mask: '00/00/0000' }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef> Status </th>
+        <td mat-cell *matCellDef="let consulta"> {{ consulta.status }} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="classificacaoRisco">
+        <th mat-header-cell *matHeaderCellDef> Classificação de Risco </th>
+        <td mat-cell *matCellDef="let consulta"> {{ consulta.classificacaoRisco }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="acoes">
+        <th mat-header-cell *matHeaderCellDef> Ações </th>
+        <td mat-cell *matCellDef="let consulta">
+          <button mat-icon-button color="accent" (click)="editarConsulta(consulta)">
+            <mat-icon>edit</mat-icon>
+          </button>
+
+          <button mat-icon-button color="accent" (click)="listarConsultasPaciente(consulta.prontuario?.id)">
+            <mat-icon>list</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+  </div>
+
+  <mat-paginator #paginatorAtendimento [pageSizeOptions]="[10, 20]" showFirstLastButtons></mat-paginator>
+
+</div>
+
+<div class="container" fxLayout="column" fxLayoutGap="20px">
+
+  <h2>Retorno</h2>
+
+  <div class="table-wrapper">
+    <table mat-table [dataSource]="dataSourceRetorno" class="mat-elevation-z8" matSort>
+
+      <ng-container matColumnDef="nomePaciente">
+        <th mat-header-cell *matHeaderCellDef> Paciente </th>
+        <td mat-cell *matCellDef="let consulta"> {{ consulta.prontuario?.nome }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="dataNascimento">
+        <th mat-header-cell *matHeaderCellDef> Nascimento </th>
+        <td mat-cell *matCellDef="let consulta"> {{ consulta.prontuario?.dataNascimento | mask: '00/00/0000' }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef> Status </th>
+        <td mat-cell *matCellDef="let consulta"> {{ consulta.status }} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="classificacaoRisco">
+        <th mat-header-cell *matHeaderCellDef> Classificação de Risco </th>
+        <td mat-cell *matCellDef="let consulta"> {{ consulta.classificacaoRisco }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="acoes">
+        <th mat-header-cell *matHeaderCellDef> Ações </th>
+        <td mat-cell *matCellDef="let consulta">
+          <button mat-icon-button color="accent" (click)="editarConsulta(consulta)">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+  </div>
+
+  <mat-paginator #paginatorRetorno  [pageSizeOptions]="[10, 20]" showFirstLastButtons></mat-paginator>
+
+</div>
+

@@ -1,0 +1,90 @@
+<app-header></app-header> 
+
+<div class="container">
+
+  <h2>CONSULTA</h2>
+
+  <div class="dados-paciente">
+    <strong>Paciente: </strong> {{ consulta.nomePaciente }}
+  </div>
+  <div class="dados-paciente">
+    <strong>Data: </strong> {{ consulta.dataHoraConsulta | date:'dd/MM/yyyy' }}&nbsp;&nbsp;
+    <strong>Hora: </strong> {{ consulta.dataHoraConsulta | date:'HH:mm' }}
+  </div>
+
+  <form class="form" fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="space-between stretch">
+
+    <div class="col-esquerda" fxLayout="column" fxLayoutGap="15px">
+
+      <mat-form-field>
+        <mat-label>Sintomas</mat-label>
+        <input matInput [(ngModel)]="consultaDto.sintomas" name="sintomas"/>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Pressão Arterial</mat-label>
+        <input matInput [(ngModel)]="consultaDto.pressaoArterial" name="pressaoArterial" mask="000/000"/>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Frequência Cardíaca</mat-label>
+        <input matInput [(ngModel)]="consultaDto.frequenciaCardiaca" maxlength="3" name="frequenciaCardiaca"/>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Temperatura</mat-label>
+        <input matInput [(ngModel)]="consultaDto.temperatura" name="temperatura" mask="00.0"/>
+      </mat-form-field>
+
+    </div>
+
+    <div class="col-direita" fxLayout="column" fxLayoutGap="15px">
+
+      <mat-form-field>
+        <mat-label>Saturação</mat-label>
+        <input matInput [(ngModel)]="consultaDto.saturacao" maxlength="2" name="saturacaoO2"/>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Classificação de Risco</mat-label>
+        <mat-select [(ngModel)]="consultaDto.classificacaoRisco" name="classificacaoRisco">
+          <mat-option *ngFor="let select of tipo_risco" [value]="select.valor">
+            {{ select.valor }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Encaminhar</mat-label>
+        <mat-select [(ngModel)]="consultaDto.status" name="status">
+          <mat-option *ngFor="let select of tipoStatus" [value]="select.valor">
+            {{ select.valor }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+
+  </form>
+
+  <div fxLayout="row" fxLayoutGap="15px">
+
+    <mat-form-field class="campo_texto" fxFlex>
+      <mat-label>Diagnóstico Médico</mat-label>
+      <textarea matInput [(ngModel)]="consultaDto.diagnosticoMedico" name="diagnosticoMedico"></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="campo_texto" fxFlex>
+      <mat-label>Prescrição Médica</mat-label>
+      <textarea matInput [(ngModel)]="consultaDto.prescricaoMedica" name="prescricaoMedica"></textarea>
+    </mat-form-field>
+
+  </div>
+
+  <div class="buttons" fxLayout="row" fxLayoutAlign="center" fxLayoutGap="10px">
+    <button mat-raised-button color="primary" (click)="salvar()">Salvar</button>
+    <button mat-raised-button color="warn" (click)="voltar()">Cancelar</button>
+  </div>
+
+</div>
+
