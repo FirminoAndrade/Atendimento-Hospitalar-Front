@@ -33,7 +33,7 @@ const routes: Routes = [
   { path: 'listar/usuarios', component: ListarUsuariosComponent, canActivate: [CanActiveGuard] },
   { path: 'atualizar/usuario/:id', component: AtualizarUsuarioComponent, canActivate: [CanActiveGuard] },
   { path: 'consulta/detalhes/:id', component: ConsultaDetalhesComponent, canActivate: [CanActiveGuard] },
- // { path: '**', component: LoginComponent }
+  { path: '**', component: LoginComponent }
 ];
 
 @NgModule({
