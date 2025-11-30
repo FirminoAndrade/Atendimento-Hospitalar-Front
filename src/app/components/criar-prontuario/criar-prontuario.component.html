@@ -1,0 +1,41 @@
+<app-header></app-header> 
+<div class="container" fxLayout="column" fxLayoutAlign="start stretch">
+
+  <h2>Criar Prontuário</h2>
+
+  <form (ngSubmit)="submitProntuario()" #prontuarioForm="ngForm" 
+        fxLayout="column" fxLayoutGap="20px" class="form">
+
+    <div fxLayout="row wrap" fxLayoutGap="15px" class="row">
+      <mat-form-field appearance="fill" fxFlex="100" fxFlex.gt-sm="48%">
+        <mat-label>Nome</mat-label>
+        <input matInput [(ngModel)]="prontuario.nome" name="nome" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" fxFlex="100" fxFlex.gt-sm="48%">
+        <mat-label>CPF</mat-label>
+        <input matInput [(ngModel)]="prontuario.cpf" name="cpf" required mask="000.000.000-00">
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row wrap" fxLayoutGap="15px" class="row">
+      <mat-form-field appearance="fill" fxFlex="100" fxFlex.gt-sm="48%">
+        <mat-label>Telefone</mat-label>
+        <input matInput [(ngModel)]="prontuario.telefone" name="telefone" mask="(00) 00000-0000">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" fxFlex="100" fxFlex.gt-sm="48%">
+        <mat-label>Data de Nascimento</mat-label>
+        <input matInput [(ngModel)]="prontuario.dataNascimento" 
+               name="dataNascimento" mask="00/00/0000" placeholder="dd/mm/aaaa">
+      </mat-form-field>
+    </div>
+
+    <button mat-raised-button color="primary" type="submit"
+            [disabled]="!prontuarioForm.form.valid" class="btn-submit">
+      Salvar
+    </button>
+
+  </form>
+</div>
+
