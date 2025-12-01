@@ -15,6 +15,7 @@ import { AtualizarUsuarioComponent } from './components/admin/atualizar-usuario/
 import { ListarUsuariosComponent } from './components/admin/listar-usuarios/listar-usuarios.component';
 import { ConsultaDetalhesComponent } from './components/consulta-detalhes/consulta-detalhes.component';
 import { CanActiveGuard } from './guard.guard';
+import { ListaTodasConsultasComponent } from './components/listas/lista-todas-consultas/lista-todas-consultas.component';
 
 
 const routes: Routes = [
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'listar/usuarios', component: ListarUsuariosComponent, canActivate: [CanActiveGuard] },
   { path: 'atualizar/usuario/:id', component: AtualizarUsuarioComponent, canActivate: [CanActiveGuard] },
   { path: 'consulta/detalhes/:id', component: ConsultaDetalhesComponent, canActivate: [CanActiveGuard] },
+  { path: 'consultas', component: ListaTodasConsultasComponent, canActivate: [CanActiveGuard] },
   { path: '**', component: LoginComponent }
 ];
 

@@ -26,6 +26,11 @@
     <mat-icon>list</mat-icon>Listar Prontuários
   </button>
 
+  <button mat-menu-item *ngIf="funcao === 'MEDICO' || funcao === 'ADMIN'" routerLink="/consultas">
+  <mat-icon>list</mat-icon>
+  Listar Todas Consultas
+</button>
+
   <button mat-menu-item (click)="botaoVoltar()">
     <mat-icon>arrow_back</mat-icon>Voltar
   </button>

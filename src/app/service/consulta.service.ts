@@ -52,6 +52,10 @@ export class ConsultaService {
 
   listarParaEnfermaria(): Observable<IConsulta[]> {
     return this.http.get<IConsulta[]>(URL + "api/consultas/enfermaria");
+  
+  }
+  listarTodasConsultas(): Observable<IConsulta[]> {
+    return this.http.get<IConsulta[]>(URL + "api/consultas");
   }
 
   mensagem(msg: string): void {

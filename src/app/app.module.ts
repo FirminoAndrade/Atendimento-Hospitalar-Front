@@ -44,6 +44,7 @@ import { ConsultaDetalhesComponent } from './components/consulta-detalhes/consul
 import { CpfMaskPipe } from './pipes/cpf-mask.pipe';
 import { TelefoneMaskPipe } from './pipes/telefone-mask.pipe';
 import { PresaoArterialMaskPipe } from './pipes/presao-arterial-mask.pipe';
+import { ListaTodasConsultasComponent } from './components/listas/lista-todas-consultas/lista-todas-consultas.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { PresaoArterialMaskPipe } from './pipes/presao-arterial-mask.pipe';
     ConsultaDetalhesComponent,
     CpfMaskPipe,
     TelefoneMaskPipe,
-    PresaoArterialMaskPipe
+    PresaoArterialMaskPipe,
+    ListaTodasConsultasComponent
   ],
   imports: [
     BrowserModule,

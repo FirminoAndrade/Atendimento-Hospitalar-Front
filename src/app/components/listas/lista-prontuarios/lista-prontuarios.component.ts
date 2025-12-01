@@ -49,6 +49,14 @@ export class ListaProntuariosComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.carregarProntuarios();
+
+     this.dataSource.filterPredicate = (prontuario: IProntuario, filtro: string) => {
+    
+        const nome = prontuario?.nome?.toLowerCase() || '';
+        const cpf = prontuario?.cpf || '';
+    
+        return nome.includes(filtro) || cpf.includes(filtro);
+      };
   }
 
   ngAfterViewInit(): void {
